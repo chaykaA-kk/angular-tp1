@@ -1,0 +1,21 @@
+<button (click)="logMessage()">Click me!</button>
+<br />
+<div>
+  <input [(ngModel)]="inputValue" placeholder="Enter text here" />
+  <button (click)="addToList()">Add to List</button>
+  <button (click)="deleteLastItem()">Delete</button>
+</div>
+
+<!-- Button to toggle the visibility of the list -->
+<button (click)="toggleListVisibility()">{{ listVisibilityLabel }}</button>
+
+<!-- List rendering with *ngIf to toggle visibility -->
+<ul *ngIf="isListVisible">
+  <li *ngFor="let item of items" [style.color]="item.color">{{ item.text }}</li>
+</ul>
+
+<!-- Button to toggle between sequential and random color modes -->
+<button (click)="toggleColorMode()">{{ buttonLabel }}</button>
+
+<!-- Single button for switching between sorting modes -->
+<button (click)="cycleSortMode()">{{ sortButtonLabel }}</button>
